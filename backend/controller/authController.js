@@ -51,7 +51,7 @@ const logIn=asyncHandler( async (req,res)=>{
     const passwordIsCorrect=await bcrypt.compare(password,user?.password || '')
 
     if(!user && !passwordIsCorrect){
-       return res.status(404).json('Invlid Credientials')
+       return res.status(401).json('Invlid Credientials')
     }
 
    generateTokenandSetCookie(user._id,res)
