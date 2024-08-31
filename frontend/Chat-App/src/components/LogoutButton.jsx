@@ -10,7 +10,7 @@ const LogoutButton = () => {
 
   return (
     <div className="mt-auto">
-      <CiLogout className="w-6 h-6 text-white cursor-pointer hover:text-sky-700" onClick={logOut}/>
+     {<CiLogout className="w-6 h-6 text-red-700 cursor-pointer hover:text-sky-700" onClick={logOut}/>}
     </div>
   )
 }

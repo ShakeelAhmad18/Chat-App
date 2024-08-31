@@ -5,6 +5,7 @@ const authRoute=require('./routes/authRoutes')
 const messageRoute=require('./routes/messageRouter')
 const cookieParser=require('cookie-parser')
 const cors=require('cors')
+const bodyParser=require('body-parser')
 
 const app=express();
 
@@ -12,8 +13,10 @@ const port=5000;
 
 app.use(express.json())
 app.use(cookieParser())
+app.use(express.urlencoded({extended:false}))
+app.use(bodyParser.json())
 app.use(cors({
-  origin:['http://localhost:5173'],
+  origin:'http://localhost:5173',
   credentials:true
 }))
 

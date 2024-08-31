@@ -16,8 +16,7 @@ const useSignIn = () => {
 
         setIsLoading(true)
         try {
-            const data=await axios.post('http://localhost:5000/api/auth/logIn',{userName,password})
-
+            const data=await axios.post('http://localhost:5000/api/auth/logIn',{userName,password},{ withCredentials: true })
              localStorage.setItem('chat-user',JSON.stringify(data))
              setAuthUser(data)
 
@@ -28,7 +27,6 @@ const useSignIn = () => {
              if(data.statusText === 'OK'){
                 toast.success('Login Sucessfully')
              }
-
 
         } catch (error) {
             console.log(error.message)
