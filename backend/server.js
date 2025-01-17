@@ -6,8 +6,8 @@ const messageRoute=require('./routes/messageRouter')
 const cookieParser=require('cookie-parser')
 const cors=require('cors')
 const bodyParser=require('body-parser')
-
-const app=express();
+const {app, server}=require('./socket/socket')
+//const app=express();
 
 const port=5000;
 
@@ -28,12 +28,14 @@ mongoose.connect(process.env.MONGOURI).then(()=>{
 })
 
 
+
 //middleWare;
 
 app.use('/api/auth',authRoute)
 app.use('/api/messages',messageRoute)
 
 
-app.listen(port,(req,res)=>{
+
+ server.listen(port,(req,res)=>{
    console.log(`server is running on port ${port}`)
-})
+ })
